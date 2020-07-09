@@ -1,6 +1,7 @@
 # VPSSIM
 FIx VPSSIM chạy được 06/2020
 
+Dành cho CentOS 7
 ```python
 curl -sO https://script.manhkhanh.net/vpssim/vpssim_fix && bash vpssim_fix
 ```
