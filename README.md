@@ -5,7 +5,7 @@ Dành cho CentOS 7
 ```python
 curl -sO https://script.manhkhanh.net/vpssim/vpssim_fix && bash vpssim_fix
 ```
-Nếu chạy trên VPS của Amazon thực hiện lệnh
+Nếu chạy trên VPS của Amazon thực hiện lệnh bên dưới trước khi cài đặt
 
 ```python
 sudo su -
