@@ -18,3 +18,5 @@ sudo su -
 Bản cài đặt này chỉ Fix lỗi, còn lại các thành phần của VPSSIM không thay đổi.
 
 Nếu bạn có gì cần hỏi, vui lòng chát qua Telegram https://t.me/manhkhanh
+
+![MOMO](https://1.bp.blogspot.com/-sBVI4E7ftwU/XxpH4FZGuvI/AAAAAAAAAAM/kNnKG4hifY0nESiv0u2sY9D0nq_HajENQCLcBGAsYHQ/s1600/momo.jpg)
