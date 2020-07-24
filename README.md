@@ -19,4 +19,4 @@ Bản cài đặt này chỉ Fix lỗi, còn lại các thành phần của VPSS
 
 Nếu bạn có gì cần hỏi, vui lòng chát qua Telegram https://t.me/manhkhanh
 
-![MOMO](https://1.bp.blogspot.com/-C6Z4bmHKhkY/XxpJQAS_ZSI/AAAAAAAAAAY/Nf47_cY6GM8pVW-yvu_rb9gPQtNEhdm-ACLcBGAsYHQ/s1600/momo02.png)
+![MOMO](https://1.bp.blogspot.com/-EO-aIHFX4VQ/XxpKMZ7sVBI/AAAAAAAAAAk/y13TJ81KjEEzH7WKfD4uhCghUNywc2hZwCLcBGAsYHQ/s0/momo-3.png)
