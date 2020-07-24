@@ -13,7 +13,7 @@ sudo su -
 
 Đây là bản Fix giúp bạn chạy được bình thường sau khi cài đặt VPSSIM ( cài đặt mới hoàn toàn ), không còn bị lỗi không chạy được PHP nữa
 
-**Đã Test trên CentOS 7 của **
+**Đã Test trên CentOS 7 của**
 
 + Amazon Lightsail
 + OVH
