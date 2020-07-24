@@ -13,9 +13,15 @@ sudo su -
 
 Đây là bản Fix giúp bạn chạy được bình thường sau khi cài đặt VPSSIM ( cài đặt mới hoàn toàn ), không còn bị lỗi không chạy được PHP nữa
 
-Đã Test trên CentOS 7 của Amazon, OVH và Linode
+**Đã Test trên CentOS 7 của **
 
-Bản cài đặt này chỉ Fix lỗi, còn lại các thành phần của VPSSIM không thay đổi.
++ Amazon Lightsail
++ OVH
++ Linode
++ Vultr
++ VPS Viettel
+
+Lưu ý: Bản cài đặt này chỉ Fix lỗitrong quá trình cài đặt, còn lại các thành phần của VPSSIM không thay đổi. Việc nhập được KEY hay không phụ thuộc vào bên vpssim.
 
 Nếu bạn có gì cần hỏi, vui lòng chát qua Telegram https://t.me/manhkhanh
 
