@@ -1,0 +1,101 @@
+#!/bin/bash
+rm -rf /tmp/zkualisdbvnjjyasdt
+curl -ss ipinfo.io > /tmp/zkualisdbvnjjyasdt
+svip=$(wget http://ipecho.net/plain -O - -q ; echo)
+sed -i 's/,//g' /tmp/zkualisdbvnjjyasdt
+sed -i 's/"//g' /tmp/zkualisdbvnjjyasdt
+clear
+echo "========================================================================="
+echo "VPSSIM checking Server ..."; sleep 3
+echo "========================================================================="
+echo "IP's Info:"
+echo "========================================================================="
+echo "Host name: $(cat /tmp/zkualisdbvnjjyasdt | awk 'NR==3 {print $2,$3,$4,$5,$6}')"; sleep 3
+echo "City: $(cat /tmp/zkualisdbvnjjyasdt | awk 'NR==4 {print $2,$3,$4,$5,$6}')"; sleep 3
+echo "Region: $(cat /tmp/zkualisdbvnjjyasdt | awk 'NR==5 {print $2,$3,$4,$5,$6}')"; sleep 3
+echo "Country: $(cat /tmp/zkualisdbvnjjyasdt | awk 'NR==6 {print $2,$3,$4,$5,$6}')"; sleep 3
+echo "Latitude/Longitude: $(cat /tmp/zkualisdbvnjjyasdt | awk 'NR==7 {print $2,$3,$4,$5,$6}')"; sleep 3
+#echo "Network: $(cat /tmp/zkualisdbvnjjyasdt | awk 'NR==8 {print $2,$3,$4,$5,$6}')"; sleep 3
+
+echo "========================================================================="
+echo "Server Info:"
+echo "========================================================================="; sleep 3
+cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo )
+cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
+freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
+tram=$( free -m | awk 'NR==2 {print $2}' )
+swap=$( free -m  | grep ^Swap | tr -s ' ' | cut -d ' ' -f 2 )
+up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
+echo "Server's IP: $svip"; sleep 3
+echo "Server Type: $(virt-what | awk 'NR==1 {print $NF}')"; sleep 3
+echo "CPU model : $cname"; sleep 3
+echo "Number of cores : $cores"; sleep 3
+echo "CPU frequency : $freq MHz"; sleep 3
+echo "RAM : $tram MB"; sleep 3
+echo "SWAP : $swap MB"; sleep 3
+echo "System uptime : $up"; sleep 3
+
+echo "========================================================================="
+echo "Checking Disc:"
+echo "========================================================================="; sleep 3
+svhdd=$( df -h | awk 'NR==2 {print $2}' )
+tocdohdd=$( (dd if=/dev/zero of=test_$$ bs=64k count=16k conv=fdatasync &&rm -f test_$$) 2>&1 | tail -1| awk '{ print $(NF-1) $NF }')
+
+echo "Total Disc: $svhdd"; sleep 3
+echo "Disc Free: $(calc $(df $PWD | awk '/[0-9]%/{print $(NF-2)}')/1024) MB"; sleep 3
+tocdohdd=$( (dd if=/dev/zero of=test_$$ bs=64k count=16k conv=fdatasync &&rm -f test_$$) 2>&1 | tail -1| awk '{ print $(NF-1) $NF }')
+echo "-------------------------------------------------------------------------"
+echo "Disc Speed: $tocdohdd "
+
+echo "========================================================================="
+echo "SpeedTest:"
+echo "========================================================================="; sleep 3
+
+cachefly=$( wget -O /dev/null http://cachefly.cachefly.net/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Download speed from CacheFly: $cachefly "
+coloatatl=$( wget -O /dev/null http://speed.atl.coloat.com/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Download speed from Coloat, Atlanta GA: $coloatatl "
+sldltx=$( wget -O /dev/null http://speedtest.dal05.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Download speed from Softlayer, Dallas, TX: $sldltx "
+linodejp=$( wget -O /dev/null http://speedtest.tokyo.linode.com/100MB-tokyo.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Download speed from Linode, Tokyo, JP: $linodejp "
+i3d=$( wget -O /dev/null http://mirror.i3d.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Download speed from i3d.net, Rotterdam, NL: $i3d"
+leaseweb=$( wget -O /dev/null http://mirror.leaseweb.com/speedtest/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Download speed from Leaseweb, Haarlem, NL: $leaseweb "
+slsg=$( wget -O /dev/null http://speedtest.sng01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Download speed from Softlayer, Singapore: $slsg "
+slwa=$( wget -O /dev/null http://speedtest.sea01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Download speed from Softlayer, Seattle, WA: $slwa "
+slsjc=$( wget -O /dev/null http://speedtest.sjc01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Download speed from Softlayer, San Jose, CA: $slsjc "
+slwdc=$( wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Download speed from Softlayer, Washington, DC: $slwdc "
+echo "-------------------------------------------------------------------------"
+echo "-------------------------------------------------------------------------"
+echo "SpeedTest for Viet Nam:"
+fpthanoi=$( wget -O /dev/null http://speedtesthn.fpt.vn/speedtest/random4000x4000.jpg 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "FPT Telecom (Hanoi): $fpthanoi "
+vnpthanoi=$( wget -O /dev/null http://speedtest3.vtn.com.vn/speedtest/random4000x4000.jpg 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "VNPT (Hanoi): $vnpthanoi "
+vietelhn=$( wget -O /dev/null http://speed-pv1.viettelidc.com.vn/speedtest/random4000x4000.jpg 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Viettel IDC (Hanoi): $vietelhn "
+vieteldn=$( wget -O /dev/null http://speedtestkv2a.viettel.vn/speedtest/random4000x4000.jpg 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Viettel IDC (Danang): $vieteldn "
+
+netnamhcm=$( wget -O /dev/null http://speedtest1.hcmc.netnam.vn/speedtest/random4000x4000.jpg 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Netnam (HCM): $netnamhcm "
+viettelhcm=$( wget -O /dev/null http://speed-hht1.viettelidc.com.vn/speedtest/random4000x4000.jpg 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "Viettel IDC (HCM): $viettelhcm "
+fpthcm=$( wget -O /dev/null http://speedtest.fpt.vn/speedtest/random4000x4000.jpg 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+echo "FPT Telecom (HCM): $fpthcm "
+echo "========================================================================="
+echo "Kiem tra hoan tat."
+echo "========================================================================="
+echo "Lenh cai dat VPSSIM: "
+echo "========================================================================="
+echo "Vietnamese Version: curl http://get.vpssim.vn -o vpssim && sh vpssim"
+echo "-------------------------------------------------------------------------"
+echo "English Version: curl http://get.vpssim.com -o vpssim && sh vpssim"
+echo "========================================================================="
+exit

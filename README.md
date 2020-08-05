@@ -1,3 +1,4 @@
+@@ -1,30 +0,0 @@
 # VPSSIM
 FIx VPSSIM chạy được 06/2020
 
