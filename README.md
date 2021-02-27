@@ -25,7 +25,3 @@ sudo su -
 Lưu ý: Bản cài đặt này chỉ Fix lỗitrong quá trình cài đặt, còn lại các thành phần của VPSSIM không thay đổi. Việc nhập được KEY hay không phụ thuộc vào bên vpssim.
 
 Nếu bạn có gì cần hỏi, vui lòng chát qua Telegram https://t.me/manhkhanh
-
-![MOMO](https://1.bp.blogspot.com/-EO-aIHFX4VQ/XxpKMZ7sVBI/AAAAAAAAAAk/y13TJ81KjEEzH7WKfD4uhCghUNywc2hZwCLcBGAsYHQ/s0/momo-3.png)
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/nguyenmanhkhanh/5)
